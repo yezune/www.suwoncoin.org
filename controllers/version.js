@@ -4,5 +4,5 @@
  */
 
 exports.version = function(req, res) {
-  res.send(200, '1234');
+  res.send(200, '165');
 };
