@@ -30,6 +30,9 @@ var userController = require('./controllers/user');
 var apiController = require('./controllers/api');
 var contactController = require('./controllers/contact');
 
+// 안드로이드 스마트폰 지갑 버전 제어
+var versionController = require('./controllers/version');
+
 /**
  * API keys and Passport configuration.
  */
@@ -134,6 +137,12 @@ app.post('/account/profile', passportConf.isAuthenticated, userController.postUp
 app.post('/account/password', passportConf.isAuthenticated, userController.postUpdatePassword);
 app.post('/account/delete', passportConf.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
+
+
+/**
+ * Mobile Version routes.
+ */
+app.get('/version', versionController.version);
 
 /**
  * API examples routes.
